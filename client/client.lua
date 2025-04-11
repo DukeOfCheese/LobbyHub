@@ -44,3 +44,11 @@ watermark = [[
 
 -- please dont remove this out of respect
 print(watermark)
+
+Citizen.CreateThread(function()
+    while true do
+        Citizen.Wait(5000)
+        local LobbyID = lib.callback.await('JoeV2Lobbys:FetchLobby', false)
+        TriggerEvent("JoeV2Lobbys:SetLobbyHud", LobbyID)
+    end
+end)

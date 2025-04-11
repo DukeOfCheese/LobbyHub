@@ -75,3 +75,8 @@ function sendToDisc(title, message, footer, color)
     }
     PerformHttpRequest(Config.lobby_webhook, function(err, text, headers) end, 'POST', json.encode({username = "JoeV2 Lobbys", embeds = embed}), { ['Content-Type'] = 'application/json' })
 end
+
+lib.callback.register('JoeV2Lobbys:FetchLobby', function(source)
+    local LobbyID = GetPlayerRoutingBucket(source)
+    return LobbyID
+end)
